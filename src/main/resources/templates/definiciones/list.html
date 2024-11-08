@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Definiciones</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Lista de Definiciones</h1>
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr>
+                    <th class="py-2">ID</th>
+                    <th class="py-2">Nombre</th>
+                    <th class="py-2">Header TPDU</th>
+                    <th class="py-2">Path</th>
+                    <th class="py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="definicion : ${definiciones}">
+                    <td class="border px-4 py-2" th:text="${definicion.id}"></td>
+                    <td class="border px-4 py-2" th:text="${definicion.nombre}"></td>
+                    <td class="border px-4 py-2" th:text="${definicion.headertpdu}"></td>
+                    <td class="border px-4 py-2" th:text="${definicion.path}"></td>
+                    <td class="border px-4 py-2">
+                        <a th:href="@{/definiciones/vista/{id}(id=${definicion.id})}" class="text-blue-500">Ver</a>
+                        <a th:href="@{/definiciones/vista/edit/{id}(id=${definicion.id})}" class="text-yellow-500 ml-2">Editar</a>
+                        <a th:href="@{/definiciones/vista/delete/{id}(id=${definicion.id})}" class="text-red-500 ml-2">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/definiciones/vista/new}" class="block text-center text-blue-500 mt-4">Crear Nueva Definición</a>
+    </div>
+</body>
+</html>

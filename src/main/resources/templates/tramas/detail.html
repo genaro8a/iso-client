@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Trama</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Detalle de Trama</h1>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">ID:</label>
+            <p th:text="${trama.id}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></p>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Nombre:</label>
+            <p th:text="${trama.nombre}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></p>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Contenido:</label>
+            <p th:text="${trama.contenido}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></p>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">ID de Definición:</label>
+            <p th:text="${trama.definicionId}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></p>
+        </div>
+        <a th:href="@{/tramas}" class="block text-center text-blue-500 mt-4">Volver a la lista</a>
+    </div>
+</body>
+</html>

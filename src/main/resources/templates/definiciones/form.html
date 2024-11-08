@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Definición</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Formulario de Definición</h1>
+        <form th:action="@{/definiciones/vista}" th:object="${definicion}" method="post" class="space-y-4">
+            <input type="hidden" th:field="*{id}" />
+            <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+            </div>
+            <div>
+                <label for="definicion" class="block text-sm font-medium text-gray-700">Definición:</label>
+                <input type="text" id="definicion" th:field="*{descripcion}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+            </div>
+            <div>
+                <label for="headertpdu" class="block text-sm font-medium text-gray-700">Header TPDU:</label>
+                <input type="text" id="headertpdu" th:field="*{headertpdu}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+            </div>
+            <div>
+                <label for="path" class="block text-sm font-medium text-gray-700">Path:</label>
+                <input type="text" id="path" th:field="*{path}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Guardar</button>
+            </div>
+        </form>
+        <a th:href="@{/definiciones}" class="block text-center text-blue-500 mt-4">Volver a la lista</a>
+    </div>
+</body>
+</html>

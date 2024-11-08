@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tramas</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Lista de Tramas</h1>
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr>
+                    <th class="py-2">ID</th>
+                    <th class="py-2">Nombre</th>
+<!--                    <th class="py-2">Contenido</th>-->
+                    <th class="py-2">ID de Definición</th>
+                    <th class="py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="trama : ${tramas}">
+                    <td class="border px-4 py-2" th:text="${trama.id}"></td>
+                    <td class="border px-4 py-2" th:text="${trama.nombre}"></td>
+<!--                    <td class="border px-4 py-2" th:text="${trama.contenido}"></td>-->
+                    <td class="border px-4 py-2" th:text="${trama.definicionId}"></td>
+                    <td class="border px-4 py-2">
+                        <a th:href="@{/tramas/vista/{id}(id=${trama.id})}" class="text-blue-500">Ver</a>
+                        <a th:href="@{/tramas/vista/edit/{id}(id=${trama.id})}" class="text-yellow-500 ml-2">Editar</a>
+                        <a th:href="@{/tramas/vista/delete/{id}(id=${trama.id})}" class="text-red-500 ml-2">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/tramas/vista/new}" class="block text-center text-blue-500 mt-4">Crear Nueva Trama</a>
+    </div>
+</body>
+</html>
