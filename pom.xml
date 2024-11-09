@@ -98,6 +98,18 @@
             <version>1.0.0.RELEASE</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect -->
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.mfrey.thymeleaf.extras.with/thymeleaf-with-dialect -->
+        <dependency>
+            <groupId>ch.mfrey.thymeleaf.extras.with</groupId>
+            <artifactId>thymeleaf-with-dialect</artifactId>
+            <version>3.0.1</version>
+        </dependency>
 
 
     </dependencies>
@@ -114,6 +126,14 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <argLine>-XX:+EnableDynamicAgentLoading -Djdk.instrument.traceUsage</argLine>
                 </configuration>
             </plugin>
         </plugins>

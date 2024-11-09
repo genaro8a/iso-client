@@ -18,6 +18,7 @@ public class DefinicionController {
     @GetMapping
     public String list(Model model) {
         model.addAttribute("definiciones", definicionService.findAll());
+        model.addAttribute("pageTitle", "Lista de Definiciones");
         return "definiciones/list";
     }
 

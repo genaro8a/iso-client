@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>ISO Client Application</title>
+    <link href="/css/output.css" rel="stylesheet">
+<!--    <link href="/css/navbar.css" rel="stylesheet">-->
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<!-- Navegación superior -->
+<header class="bg-white shadow-md">
+    <th:block layout:insert="~{fragments/navbar}"/>
+</header>
+
+<!-- Contenedor principal -->
+<div class="flex flex-1">
+    <!-- Menú lateral -->
+    <aside class="hidden md:flex md:w-64 bg-gray-800 text-white p-4">
+        <th:block layout:insert="~{fragments/sidebar}"/>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-4">
+        <th:block layout:fragment="content"/>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; 2023 ISO Client Application</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- src/main/resources/templates/fragments/sidebar.html -->
+<div th:fragment="sidebar">
+    <aside class="w-full md:w-64 bg-gray-900 text-gray-200 h-full p-4 flex flex-col">
+        <!-- Encabezado del menú -->
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold uppercase tracking-wider text-gray-400">Menú</h2>
+        </div>
+
+        <!-- Opciones principales del menú -->
+        <ul class="space-y-2">
+            <li>
+                <a th:href="@{/definiciones}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Definiciones
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/tramas}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Tramas
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/usuarios}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Usuarios
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/configuracion}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Configuración
+                </a>
+            </li>
+        </ul>
+
+        <!-- División del contenido -->
+        <div class="border-t border-gray-700 mt-6 pt-4">
+            <h2 class="text-lg font-semibold uppercase tracking-wider text-gray-400">Otros</h2>
+        </div>
+
+        <!-- Opciones adicionales del menú -->
+        <ul class="space-y-2 mt-2">
+            <li>
+                <a th:href="@{/ayuda}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Ayuda
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/contacto}"
+                   class="flex items-center py-2 px-4 text-sm hover:bg-gray-700 hover:text-white rounded transition duration-150">
+                    Contacto
+                </a>
+            </li>
+        </ul>
+    </aside>
+</div>

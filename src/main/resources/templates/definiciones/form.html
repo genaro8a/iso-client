@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
     <title>Formulario de Definición</title>
-    <link href="/css/output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+<body>
+<th:block layout:fragment="content">
+
         <h1 class="text-2xl font-bold mb-6">Formulario de Definición</h1>
         <form th:action="@{/definiciones/vista}" th:object="${definicion}" method="post" class="space-y-4">
             <input type="hidden" th:field="*{id}" />
@@ -31,6 +31,7 @@
             </div>
         </form>
         <a th:href="@{/definiciones}" class="block text-center text-blue-500 mt-4">Volver a la lista</a>
-    </div>
+</th:block>
+
 </body>
 </html>

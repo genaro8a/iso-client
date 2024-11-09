@@ -1,0 +1,58 @@
+<!-- src/main/resources/templates/fragments/navbar.html -->
+<div th:fragment="navbar">
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo o título de la aplicación -->
+            <h1 class="text-2xl font-bold tracking-wide">ISO Client Application</h1>
+
+            <!-- Menú de navegación -->
+            <nav>
+                <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                    <li>
+                        <a th:href="@{/definiciones}"
+                           class="hover:text-gray-300 transition duration-150">Definiciones</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/tramas}"
+                           class="hover:text-gray-300 transition duration-150">Tramas</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/usuarios}"
+                           class="hover:text-gray-300 transition duration-150">Usuarios</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/configuracion}"
+                           class="hover:text-gray-300 transition duration-150">Configuración</a>
+                    </li>
+                </ul>
+
+                <!-- Menú hamburguesa para pantallas pequeñas -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Menú desplegable para dispositivos móviles -->
+        <div id="mobile-menu" class="md:hidden bg-blue-700 text-white px-4 py-3 hidden">
+            <ul class="space-y-2">
+                <li><a th:href="@{/definiciones}" class="block py-1 hover:text-gray-300">Definiciones</a></li>
+                <li><a th:href="@{/tramas}" class="block py-1 hover:text-gray-300">Tramas</a></li>
+                <li><a th:href="@{/usuarios}" class="block py-1 hover:text-gray-300">Usuarios</a></li>
+                <li><a th:href="@{/configuracion}" class="block py-1 hover:text-gray-300">Configuración</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        // Script para alternar el menú móvil
+        // document.getElementById('menu-toggle').addEventListener('click', function() {
+        //     var mobileMenu = document.getElementById('mobile-menu');
+        //     mobileMenu.classList.toggle('hidden');
+        // });
+    </script>
+</div>
