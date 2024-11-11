@@ -1,34 +1,130 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>ISO Client Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Responsiva con Barra de Navegación y Menú Lateral</title>
     <link href="/css/output.css" rel="stylesheet">
-<!--    <link href="/css/navbar.css" rel="stylesheet">-->
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-100 flex">
 
-<!-- Navegación superior -->
-<header class="bg-white shadow-md">
-    <th:block layout:insert="~{fragments/navbar}"/>
-</header>
+<!-- Menú Lateral (Visible en pantallas grandes) -->
+<aside class="w-64 bg-blue-600 text-white h-screen p-5 hidden lg:block fixed">
+    <h2 class="text-2xl font-bold mb-6">Menú</h2>
+    <nav>
+        <ul class="space-y-4">
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Inicio</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Servicios</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Nosotros</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Contacto</a></li>
+        </ul>
+    </nav>
+</aside>
 
-<!-- Contenedor principal -->
-<div class="flex flex-1">
-    <!-- Menú lateral -->
-    <aside class="hidden md:flex md:w-64 bg-gray-800 text-white p-4">
-        <th:block layout:insert="~{fragments/sidebar}"/>
-    </aside>
+<!-- Contenedor Principal -->
+<div class="flex-1 flex flex-col lg:ml-64"> <!-- Ajuste para que el contenido no se superponga con el menú lateral -->
 
-    <!-- Contenido principal -->
-    <main class="flex-1 p-4">
-        <th:block layout:fragment="content"/>
+    <!-- Barra de Navegación Superior -->
+    <header class="bg-blue-500 text-white p-4 flex items-center justify-between lg:justify-end">
+        <button class="lg:hidden p-2 text-white" onclick="toggleMenu()">
+            &#9776; <!-- Icono de hamburguesa para dispositivos móviles -->
+        </button>
+        <h1 class="text-xl font-bold lg:hidden">Mi Aplicación</h1>
+        <div class="hidden lg:flex space-x-4">
+            <a href="#" class="hover:underline">Inicio</a>
+            <a href="#" class="hover:underline">Servicios</a>
+            <a href="#" class="hover:underline">Nosotros</a>
+            <a href="#" class="hover:underline">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-1 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white shadow-lg rounded p-4">
+                <h2 class="font-bold text-lg">Elemento 1</h2>
+                <p>Descripción del primer elemento.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded p-4">
+                <h2 class="font-bold text-lg">Elemento 2</h2>
+                <p>Descripción del segundo elemento.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded p-4">
+                <h2 class="font-bold text-lg">Elemento 3</h2>
+                <p>Descripción del tercer elemento.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded p-4">
+                <h2 class="font-bold text-lg">Elemento 4</h2>
+                <p>Descripción del cuarto elemento.</p>
+            </div>
+        </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2023 Mi Aplicación</p>
+    </footer>
 </div>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white p-4 text-center">
-    <p>&copy; 2023 ISO Client Application</p>
-</footer>
+<!-- Menú Lateral para Dispositivos Móviles -->
+<div id="mobileMenu" class="fixed inset-0 bg-blue-600 text-white z-50 p-6 hidden">
+    <button class="text-white text-2xl absolute top-4 right-4" onclick="toggleMenu()">
+        &times;
+    </button>
+    <nav>
+        <ul class="space-y-4">
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Inicio</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Servicios</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Nosotros</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Contacto</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- JavaScript para el menú lateral en móviles -->
+<script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    }
+</script>
+
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ISO Client Application</title>-->
+<!--    <link href="/css/output.css" rel="stylesheet">-->
+<!--&lt;!&ndash;    <link href="/css/navbar.css" rel="stylesheet">&ndash;&gt;-->
+<!--</head>-->
+<!--<body class="bg-gray-100 min-h-screen flex flex-col">-->
+
+<!--&lt;!&ndash; Navegación superior &ndash;&gt;-->
+<!--<header class="bg-white shadow-md">-->
+<!--    <th:block layout:insert="~{fragments/navbar}"/>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Contenedor principal &ndash;&gt;-->
+<!--<div class="flex flex-1">-->
+<!--    &lt;!&ndash; Menú lateral &ndash;&gt;-->
+<!--    <aside class="hidden md:flex md:w-64 bg-gray-800 text-white p-4">-->
+<!--        <th:block layout:insert="~{fragments/sidebar}"/>-->
+<!--    </aside>-->
+
+<!--    &lt;!&ndash; Contenido principal &ndash;&gt;-->
+<!--    <main class="flex-1 p-4">-->
+<!--        <th:block layout:fragment="content"/>-->
+<!--    </main>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer class="bg-gray-800 text-white p-4 text-center">-->
+<!--    <p>&copy; 2023 ISO Client Application</p>-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->
